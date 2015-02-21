@@ -1,10 +1,1 @@
-{
-  "meta": {
-    "username": "hgomez",
-    "repositoryName": "hgomez.github.io",
-    "branch": "master"
-  },
-  "theme": {
-    "name": "Casper"
-  }
-}
+{"meta":{"username":"hgomez","repositoryName":"hgomez.github.io","branch":"master","cname":"blog.hgomez.net"},"site":{"title":"Rico's Blog","url":"http://blog.hgomez.net"},"socialnetwork":{},"theme":{"name":"Casper","url":"http://hgomez.github.io/themes/Casper"}}
