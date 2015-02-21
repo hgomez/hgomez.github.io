@@ -3,10 +3,12 @@
 == Back to basic
 
 2 years ago, I moved from wordpress to github pages.
-I used Octopress but it wasn't a so good idea.
+I used Octopress but I should say it wasn't a so good idea.
 
-I needed something more simple, with a web editor.
+In fact, I needed something simple, with a web editor.
 
 I just discover http://hubpress.io/ and it seems to fit all my requirements.
+
+So far, so good, Hubpress is a really nice app and do the job.
 
 
