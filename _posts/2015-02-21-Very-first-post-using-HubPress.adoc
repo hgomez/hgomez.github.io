@@ -1,0 +1,7 @@
+= Very first post using HubPress.
+
+== Back to basic
+
+2 years ago, I moved from wordpress to github pages.
+I used Octopress but it wasn't a so good idea.
+
