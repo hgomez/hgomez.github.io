@@ -9,4 +9,4 @@ This is a well known issue :
 https://forums.virtualbox.org/viewtopic.php?f=2&t=66081
 https://forums.virtualbox.org/viewtopic.php?f=1&t=66067#p312765
 
-Solution for now is to revert to 4.3.20 (VB and VB extensions) or wait for upcoming VirtualBox release
+Solution for now is to revert to 4.3.20 (VB and extension) or wait for upcoming VirtualBox release
