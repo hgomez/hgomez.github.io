@@ -1,2 +1,9 @@
 # CentOS/RHEL and Git
 
+If you're using CentOS/RHEL 5, 6 or 7, you have noticed bundled git are quite old.
+It could be a problem if you need to use smart features, like Sparse Checkout.
+Also Jenkins Git Plugin recommand version 1.7 or higher.
+
+Of course, you could recompile git from sources, but to save your CO2 impact, it's better to use prebuilt packages.
+
+
