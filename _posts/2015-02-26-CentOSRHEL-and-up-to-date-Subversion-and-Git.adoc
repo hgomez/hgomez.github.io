@@ -6,9 +6,7 @@ Also Jenkins Git Plugin recommand version 1.7 or higher.
 
 Of course, you could recompile git from sources, but it's better to use prebuilt packages.
 
-### Here enter Wandisco.
-
-image:http://upload.wikimedia.org/wikipedia/en/archive/5/57/20130227104736!Wandisco_logo.gif["wandisco",height=32]
+### Here enter Wandisco image:http://upload.wikimedia.org/wikipedia/en/archive/5/57/20130227104736!Wandisco_logo.gif["wandisco",height=32]
 
 Wandisco provides up to date Subversion RPMs for CentOS 5/6/7 :
 
