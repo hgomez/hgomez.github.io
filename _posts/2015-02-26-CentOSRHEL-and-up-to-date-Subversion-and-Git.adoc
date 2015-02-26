@@ -54,7 +54,7 @@ Example to use Wandisco Subversion 1.9 on CentOS/RHEL 5 :
     gpgkey=http://opensource.wandisco.com/RPM-GPG-KEY-WANdisco
 
     
-Save the earth, reduce your CO2 impact, and stick on prebuilt-native packages 
+Save the earth, reduce your CO2 impact, and stick on prebuilt-native packages :) 
 
 
 
