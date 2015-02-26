@@ -1,4 +1,4 @@
-# CentOS/RHEL, up to date Subversion and Git
+# CentOS/RHEL and up to date Subversion and Git
 
 If you're using CentOS/RHEL 5, 6 or 7, you have noticed bundled subversion and git are quite old.
 It could be a problem if you need to use smart features, like Sparse Checkout.
