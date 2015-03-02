@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>Gitlab custom hooks - Bash Way - Rico&#x27;s Blog</title>
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Gitlab custom hooks - Bash Way">
+    <meta name="twitter:description" content="">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Gitlab custom hooks - Bash Way">
+    <meta property="og:description" content="">
+
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/apple-touch-icon-precomposed.png" rel="apple-touch-icon">
+
+    <link rel="stylesheet" type="text/css" href="http://blog.hgomez.net/themes/uno/assets/css/uno.css?v=1.0.0" />
+
+    <link rel="canonical" href="http://blog.hgomez.net/2015/03/02/Gitlab-custom-hooks-Bash-Way.html" />
+    
+    <meta property="og:site_name" content="Rico&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Gitlab custom hooks - Bash Way" />
+    <meta property="og:description" content="If you&amp;#8217;re using Gitlab, you may know you could use custom hooks to validate contents. Everything is detailed in http://doc.gitlab.com/ce/hooks/custom_hooks.html I found many examples where hooks are Ruby based and..." />
+    <meta property="og:url" content="http://blog.hgomez.net/2015/03/02/Gitlab-custom-hooks-Bash-Way.html" />
+    <meta property="article:published_time" content="2015-03-01T23:00:00.000Z" />
+    <meta property="article:modified_time" content="2015-03-02T17:24:47.585Z" />
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Gitlab custom hooks - Bash Way" />
+    <meta name="twitter:description" content="If you&amp;#8217;re using Gitlab, you may know you could use custom hooks to validate contents. Everything is detailed in http://doc.gitlab.com/ce/hooks/custom_hooks.html I found many examples where hooks are Ruby based and..." />
+    <meta name="twitter:url" content="http://blog.hgomez.net/2015/03/02/Gitlab-custom-hooks-Bash-Way.html" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "Rico&#x27;s Blog",
+    "author": {
+        "@type": "Person",
+        "name": "Gomez Henri",
+        "image": "https://avatars.githubusercontent.com/u/274370?v=3",
+        "url": "undefined/author/undefined",
+        "sameAs": "http://blog.hgomez.net"
+    },
+    "headline": "Gitlab custom hooks - Bash Way",
+    "url": "http://blog.hgomez.net/2015/03/02/Gitlab-custom-hooks-Bash-Way.html",
+    "datePublished": "2015-03-01T23:00:00.000Z",
+    "dateModified": "2015-03-02T17:24:47.585Z",
+    "description": "If you&amp;#8217;re using Gitlab, you may know you could use custom hooks to validate contents. Everything is detailed in http://doc.gitlab.com/ce/hooks/custom_hooks.html I found many examples where hooks are Ruby based and..."
+}
+    </script>
+
+    <meta name="generator" content="Ghost ?" />
+    <link rel="alternate" type="application/rss+xml" title="Rico&#x27;s Blog" href="http://blog.hgomez.net/rss" />
+
+</head>
+<body class="post-template no-js">
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    <header class="panel-cover panel-cover--collapsed " >
+      <div class="panel-main">
+    
+        <div class="panel-main__inner panel-inverted">
+        <div class="panel-main__content">
+    
+            <a href="http://blog.hgomez.net" title="link to homepage for Rico&#x27;s Blog"><img src="https://avatars3.githubusercontent.com/u/274370" width="80" alt="Rico&#x27;s Blog logo" class="panel-cover__logo logo" /></a>
+            <h1 class="panel-cover__title panel-title"><a href="http://blog.hgomez.net" title="link to homepage for Rico&#x27;s Blog">Rico&#x27;s Blog</a></h1>
+            <hr class="panel-cover__divider" />
+            <p class="panel-cover__description">OSS activist, ASF Member, former Tomcat contributor, founder of JPackage, DevOps Incubator and OBuildFactory projects. Dev, QA and Ops.
+    </p>
+            <hr class="panel-cover__divider panel-cover__divider--secondary" />
+    
+            <div class="navigation-wrapper">
+    
+              <nav class="cover-navigation cover-navigation--primary">
+                <ul class="navigation">
+                  <li class="navigation__item"><a href="http://blog.hgomez.net/#blog" title="link to Rico&#x27;s Blog blog" class="blog-button">Blog</a></li>
+                </ul>
+              </nav>
+    
+              
+              
+              <nav class="cover-navigation navigation--social">
+                <ul class="navigation">
+              
+              
+                  <!-- Twitter -->
+                  <li class="navigation__item">
+                    <a href="https://twitter.com/hgomez" title="Twitter account">
+                      <i class='icon icon-social-twitter'></i>
+                      <span class="label">Twitter</span>
+                    </a>
+                  </li>
+              
+                  <!-- Google Plus -->
+                  <li class="navigation__item">
+                    <a href="https://plus.google.com/u/0/+HenriGomez" title="Google+ account">
+                      <i class='icon icon-social-google-plus'></i>
+                      <span class="label">Google-plus</span>
+                    </a>
+                  </li>
+              
+                  <!-- Github -->
+                  <li class="navigation__item">
+                    <a href="https://github.com/hgomez/" title="Github account">
+                      <i class='icon icon-social-github'></i>
+                      <span class="label">Github</span>
+                    </a>
+                  </li>
+                  </li>
+              
+              
+              
+              
+                  <!-- LinkedIn -->
+                  <li class="navigation__item">
+                    <a href="https://fr.linkedin.com/in/gomezhe" title="LinkedIn account">
+                      <i class='icon icon-social-linkedin'></i>
+                      <span class="label">LinkedIn</span>
+                    </a>
+                  </li>
+              
+              
+                </ul>
+              </nav>
+              
+    
+            </div>
+    
+          </div>
+    
+        </div>
+    
+        <div class="panel-cover--overlay"></div>
+      </div>
+    </header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            
+
+  <article class="post-container post-container--single">
+
+    <header class="post-header">
+      <div class="post-meta">
+        <time datetime="02 Mar 2015" class="post-meta__date date">02 Mar 2015</time> &#8226; <span class="post-meta__tags tags"></span>
+        <span class="post-meta__author author"><img src="https://avatars.githubusercontent.com/u/274370?v=3" alt="profile image for Gomez Henri" class="avatar post-meta__avatar" /> by Gomez Henri</span>
+      </div>
+      <h1 class="post-title">Gitlab custom hooks - Bash Way</h1>
+    </header>
+
+    <section class="post">
+      <div class="paragraph">
+<p><span class="image"><img src="https://about.gitlab.com/images/wordmark.png" alt="gitlab" height="32"></span></p>
+</div>
+<div class="paragraph">
+<p>If you&#8217;re using Gitlab, you may know you could use custom hooks to validate contents.
+Everything is detailed in <a href="http://doc.gitlab.com/ce/hooks/custom_hooks.html" class="bare">http://doc.gitlab.com/ce/hooks/custom_hooks.html</a></p>
+</div>
+<div class="paragraph">
+<p>I found many examples where hooks are Ruby based and using Gitlab APIs but I wanted something in good old bash.</p>
+</div>
+<div class="paragraph">
+<p>I found some bash hooks, <a href="https://github.com/Praqma/git-hooks" class="bare">https://github.com/Praqma/git-hooks</a>, but 7 months old.
+They still works with Gitlab 7.8.1 and adapted them for my purposes.</p>
+</div>
+<div class="paragraph">
+<p>Here is a sample pre-receive hook :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>#!/bin/bash
+#
+# pre-receive hook for Commit Check
+#
+
+COMPANY_EMAIL="mycorp.org"
+
+readonly PROGNAME=$(basename $0)
+readonly PROGDIR=$(readlink -m $(dirname $0))
+
+check_single_commit()
+{
+  COMMIT_CHECK_STATUS=0
+  #
+  # Put here any logic you want for your commit
+  #
+  # COMMIT_MESSAGE contains commit message
+  # COMMIT_AUTHOR contains commit author (without email)
+  #
+  # Set COMMIT_CHECK_STATUS to non zero to indicate an error
+}
+
+check_all_commits()
+{
+  REVISIONS=$(git rev-list $OLD_REVISION..$NEW_REVISION)
+  IFS='\n' read -ra LIST_OF_REVISIONS &lt;&lt;&lt; "$REVISIONS"
+
+  for rid in "${!LIST_OF_REVISIONS[@]}"; do
+    REVISION=${LIST_OF_REVISIONS[rid]}
+    COMMIT_MESSAGE=$(git cat-file commit $REVISION | sed '1,/^$/d')
+    COMMIT_AUTHOR=$(git cat-file commit $REVISION | grep committer | sed 's/^.* \([^@ ]\+@[^ ]\+\) \?.*$/\1/' | sed 's/&lt;//' | sed 's/&gt;//' | sed 's/@$COMPANY_EMAIL//')
+    check_single_commit
+
+    if [ "$COMMIT_CHECK_STATUS" != "0" ]; then
+      echo "Commit validation failed for commit $REVISION" &gt;&amp;2
+      exit 1
+    fi
+
+  done
+}
+
+# Get custom commit message format
+while read OLD_REVISION NEW_REVISION REFNAME ; do
+  check_all_commits
+done
+
+exit 0</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Install is easy (example with Omnibus based Gitlab) :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>mkdir /var/opt/gitlab/git-data/repositories/MYGROUP/MYREPO.git/custom_hooks
+cp pre-receive /var/opt/gitlab/git-data/repositories/MYGROUP/MYREPO.git/custom_hooks/pre-receive
+chmod 755 /var/opt/gitlab/git-data/repositories/MYGROUP/MYREPO.git/custom_hooks/pre-receive
+chown -R git:git /var/opt/gitlab/git-data/repositories/MYGROUP/MYREPO.git/custom_hooks</pre>
+</div>
+</div>
+    </section>
+
+  </article>
+
+  
+  <section class="post-comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'thericosblog'; // required: replace example with your forum shortname
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </section>
+  
+
+
+
+            <footer class="footer">
+                <span class="footer__copyright">&copy; 2015. All rights reserved.</span>
+                <span class="footer__copyright"><a href="http://uno.daleanthony.com" title="link to page for Uno Ghost theme">Uno theme</a> by <a href="http://daleanthony.com" title="link to website for Dale-Anthony">Dale-Anthony</a></span>
+                <span class="footer__copyright">Proudly published with <a href="http://hubpress.io" title="link to Hubpress website">Hubpress</a></span>
+            </footer>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js?v="></script>
+
+    <script type="text/javascript" src="http://blog.hgomez.net/themes/uno/assets/js/main.js?v=1.0.0"></script>
+    
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-16150055-1', 'auto');
+    ga('send', 'pageview');
+
+    </script>
+
+</body>
+</html>
