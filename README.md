@@ -1,1 +1,1 @@
-Better move to [my blog](https://blog.hgomez.net/).
+Better move to [my blog](https://blog.hgomez.net/) :blush:
