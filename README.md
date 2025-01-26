@@ -1,2 +1,1 @@
-# hgomez.github.io
-BLOG
+Better move to [my blog](https://blog.hgomez.net/).
